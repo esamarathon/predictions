@@ -1,19 +1,12 @@
 import express from 'express';
-
-const PORT = Number(process.env.PORT || 8080);
+import config from './config';
+import { healthcheck } from './controllers/healthcheckController';
 
 const app = express();
 
-app.get('/', (_, res) => {
-	res.status(200).send('ok');
-});
+app.get('/_healthcheck', healthcheck);
 
-app.use('/_healthcheck', (_, res) => {
-	res.status(200).json({
-		uptime: process.uptime(),
-	});
-});
-
-app.listen(PORT, () => {
-	console.log(`Listening on http://localhost:${PORT}`);
+console.log('Starting server...');
+app.listen(config.port, () => {
+	console.log(`Now listening on http://localhost:${config.port}`);
 });
