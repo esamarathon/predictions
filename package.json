@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "ESA API for storing user predictions for races",
   "main": "src/index.js",
+  "homepage": "https://github.com/esamarathon/esa-predictions#readme",
   "repository": "https://github.com/esamarathon/esa-predictions.git",
   "author": "Christian Ruigrok <christian@ruigrok.info>",
   "license": "MIT",
