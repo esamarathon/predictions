@@ -9,12 +9,11 @@ This is a prototype for an API that will be used to store and show user predicti
 You need a recent version of Node (with NPM) installed in order to run this project.
 
 1. run `npm install` in the root of the repo
-2. run `npm start` in the root of the repo to start up the development server.
-3. you can now edit the files in the `src` folder and it should automatically update the server when you save the files.
+2. run `npm dev` in the root of the repo to start the development server (you can run this as `npm dev:debug` to be able to attach a debugger in your editor)
 
 ### Running in production
 
-You can build the project for production using the command `npm build` and later execute `node build/index.js` to start the production server. (Or better yet use PM2 to run it).
+You can build the project for production using the command `npm build` and later execute `npm start` to start the production server. (Or better yet use PM2 to run it).
 
 ## Contributing
 
