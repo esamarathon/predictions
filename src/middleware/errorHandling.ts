@@ -6,11 +6,12 @@ export async function errorHandling(ctx: Context, next: () => Promise<any>) {
 		await next()
 	} catch (error) {
 		ctx.status = error.status || 500
-		ctx.body = error.message
+		ctx.body =
+			ctx.status === 500
+				? { error: 'Internal server error' }
+				: typeof error.message === 'object'
+				? error.message
+				: { error: error.message }
 		ctx.app.emit('error', error)
 	}
-}
-
-export async function errorLogger(error: Error) {
-	console.error(error)
 }
