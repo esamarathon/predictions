@@ -1,3 +1,3 @@
 export function uptime() {
-	return process.uptime();
+	return process.uptime()
 }

@@ -1,0 +1,37 @@
+{
+	"root": true,
+	"env": {
+		"node": true
+	},
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"sourceType": "module",
+		"project": "./tsconfig.json"
+	},
+	"plugins": ["@typescript-eslint", "prettier"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:prettier/recommended"
+	],
+	"rules": {
+		"no-console": 0,
+		"require-atomic-updates": 0,
+		"prettier/prettier": "warn",
+		"@typescript-eslint/explicit-function-return-type": 0,
+		"@typescript-eslint/interface-name-prefix": [
+			1,
+			{
+				"prefixWithI": "always"
+			}
+		],
+		"@typescript-eslint/member-delimiter-style": [
+			1,
+			{
+				"multiline": {
+					"delimiter": "none"
+				}
+			}
+		]
+	}
+}

@@ -1,4 +1,4 @@
 export async function runExists(id: string) {
-	throw new Error('test');
-	return true;
+	console.log('Checking if run ' + id + ' exists')
+	return true
 }

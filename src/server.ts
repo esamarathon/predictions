@@ -1,34 +1,22 @@
-import express from 'express';
-import helmet from 'helmet';
-import HttpStatus from 'http-status-codes';
-import rateLimit from 'express-rate-limit';
-import config from './config';
-import { healthcheckEndpoint } from './controllers/healthcheckController';
-import { getVotesEndpoint, storeVoteEndpoint } from './controllers/votesController';
+import Koa from 'koa'
+import Router from 'koa-router'
+import helmet from 'koa-helmet'
+import config from './config'
+import { healthcheckEndpoint } from './controllers/healthcheckController'
+import { getVotesEndpoint, storeVoteEndpoint } from './controllers/votesController'
+import { errorHandling, errorLogger } from './middleware/errorHandling'
 
-const app = express();
-app.use(helmet());
-app.use(new rateLimit(config.rateLimit));
-app.use(express.json());
-app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
-	console.error(err.stack);
-	next(err);
-});
-app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
-	if (req.xhr) {
-		res.status(500).send({
-			error: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR),
-		});
-	} else {
-		next(err);
-	}
-});
+const app = new Koa()
+app.use(helmet())
+app.use(errorHandling)
+app.on('error', errorLogger)
 
-app.get('/api/_healthcheck', healthcheckEndpoint);
-app.get('/api/votes/:runId', getVotesEndpoint);
-app.post('/api/votes/:runId', storeVoteEndpoint);
+const router = new Router()
+router.get('/api/_healthcheck', healthcheckEndpoint)
+router.get('/api/votes/:runId', getVotesEndpoint)
+router.post('/api/votes/:runId', storeVoteEndpoint)
 
-console.log('Starting server...');
+console.log('Starting server...')
 app.listen(config.port, () => {
-	console.log(`Now listening on http://localhost:${config.port}`);
-});
+	console.log(`Now listening on http://localhost:${config.port}`)
+})

@@ -1,9 +1,10 @@
-import HttpStatus from 'http-status-codes';
-import { Request, Response } from 'express';
-import { uptime } from '../services/uptimeService';
+import HttpStatus from 'http-status-codes'
+import { Context } from 'koa'
+import { uptime } from '../services/uptimeService'
 
-export function healthcheckEndpoint(req: Request, res: Response) {
-	return res.status(HttpStatus.OK).json({
+export function healthcheckEndpoint(ctx: Context) {
+	ctx.status = HttpStatus.OK
+	ctx.body = {
 		uptime: uptime(),
-	});
+	}
 }
