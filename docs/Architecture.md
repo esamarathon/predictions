@@ -16,6 +16,8 @@ All the work is done in the `src` folder. This directory contains the root files
 
 The `controllers` directory contains all the routes/endpoints the server exposes. These should contain the business logic and be as minimal as possible. The core functionality should be handled in the services.
 
+The `middleware` directory contains files with methods that transform the incoming and outgoing HTTP requests.
+
 The `services` directory contains files with methods the controllers call. These should not have business logic.
 
 #### Files
