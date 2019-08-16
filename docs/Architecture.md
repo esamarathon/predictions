@@ -2,11 +2,11 @@
 
 ### Tools
 
-We will be using Node with Typescript for this project. To expose endpoints as an HTTP server Express will be used.
+We will be using [Node](https://nodejs.org/en/docs/) with [Typescript](https://www.typescriptlang.org/docs/home.html) for this project. To expose endpoints as an HTTP server [Koa](https://koajs.com/) will be used.
 
-For storage we have the option to use either a full database, online database like Firebase or a flat file database like SQlite. This has yet to be decided.
+For storage we have the option to use either a full database, online database like [Firebase](https://firebase.google.com/docs) or a flat file database like [SQlite](https://sqlite.org/docs.html). This has yet to be decided.
 
-Users will have to be authenticated via the Twitch API to be able to vote on runs.
+Users will have to be authenticated via the [Twitch API](https://dev.twitch.tv/docs/authentication/) to be able to vote on runs.
 
 ### File structure
 
