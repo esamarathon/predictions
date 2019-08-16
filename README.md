@@ -1,6 +1,8 @@
 # ESA Predictions
 
-This is a prototype for an API that will be used to store and show user predictions for runs.
+This is a prototype for an API that will be used to store and show audience predictions for runs.
+
+![screenshot of predictions UI](./examples/percentage-bar/images/screenshot.png 'Example UI')
 
 ## Getting started
 
